@@ -3,7 +3,7 @@
     /// <summary>
     /// Message
     /// </summary>
-    public partial class Message
+    public partial class Messages
     {
         /// <summary>
         /// Success

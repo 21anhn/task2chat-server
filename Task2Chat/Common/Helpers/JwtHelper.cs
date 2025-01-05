@@ -37,7 +37,7 @@ namespace Task2Chat.Common.Helpers
                     issuer: issuer,
                     audience: audience,
                     claims: claims,
-                    expires: DateTime.UtcNow.Add(expirationDuration),
+                    expires: DateTime.Now.Add(expirationDuration),
                     signingCredentials: credentials
                 );
 

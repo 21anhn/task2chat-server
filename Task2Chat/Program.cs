@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Task2Chat.Core.Repositories;
+using Task2Chat.Core.Services.Auth;
 using Task2Chat.Infrastructure.Data;
 using Task2Chat.Infrastructure.UnitOfWork;
 using Task2Chat.Middlewares;
@@ -35,6 +36,8 @@ namespace Task2Chat
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+
+            builder.Services.AddScoped<IAuthService, AuthService>();
 
             var issuer = Environment.GetEnvironmentVariable("ISSUER");
             var audience = Environment.GetEnvironmentVariable("AUDIENCE");

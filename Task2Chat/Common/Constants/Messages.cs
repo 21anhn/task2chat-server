@@ -3,7 +3,7 @@
     /// <summary>
     /// Message
     /// </summary>
-    public partial class Message
+    public partial class Messages
     {
         public static string GetMessageById(string messageId)
         {
