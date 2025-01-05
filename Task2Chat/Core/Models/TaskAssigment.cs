@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Task2Chat.Models;
+namespace Task2Chat.Core.Models;
 
 public partial class TaskAssignment
 {

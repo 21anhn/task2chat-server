@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Task2Chat.Data;
+using Task2Chat.Infrastructure.Data;
 using Task2Chat.Middlewares;
 
 namespace Task2Chat

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Task2Chat.Models;
+using Task2Chat.Core.Models;
 
-namespace Task2Chat.Data;
+namespace Task2Chat.Infrastructure.Data;
 
 public partial class ApplicationDBContext : DbContext
 {

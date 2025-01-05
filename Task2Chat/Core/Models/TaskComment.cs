@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Task2Chat.Models;
+namespace Task2Chat.Core.Models;
 
 public partial class TaskComment
 {

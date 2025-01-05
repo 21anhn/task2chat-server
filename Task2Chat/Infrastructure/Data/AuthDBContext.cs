@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Task2Chat.Data
+namespace Task2Chat.Infrastructure.Data
 {
     public class AuthDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
