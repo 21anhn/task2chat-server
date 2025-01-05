@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Task2Chat.Core.Repositories;
 using Task2Chat.Infrastructure.Data;
+using Task2Chat.Infrastructure.UnitOfWork;
 using Task2Chat.Middlewares;
 
 namespace Task2Chat
@@ -30,6 +32,9 @@ namespace Task2Chat
             builder.Services.AddIdentity<IdentityUser, IdentityRole>()
                             .AddEntityFrameworkStores<AuthDbContext>()
                             .AddDefaultTokenProviders();
+
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
 
             var issuer = Environment.GetEnvironmentVariable("ISSUER");
             var audience = Environment.GetEnvironmentVariable("AUDIENCE");

@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Task2Chat.Repositories
+namespace Task2Chat.Core.Repositories
 {
     /// <summary>
     /// IGenericRepository

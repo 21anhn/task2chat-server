@@ -1,7 +1,8 @@
 ﻿using System.Linq.Expressions;
-using Task2Chat.Data;
+using Microsoft.EntityFrameworkCore;
+using Task2Chat.Infrastructure.Data;
 
-namespace Task2Chat.Repositories
+namespace Task2Chat.Core.Repositories
 {
     /// <summary>
     /// GenericRepository
@@ -11,7 +12,8 @@ namespace Task2Chat.Repositories
     public class GenericRepository<T, TKey> : IGenericRepository<T, TKey> where T : class
     {
         private readonly ApplicationDBContext _context;
-        
+        private readonly DbSet<T> _dbSet;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -19,36 +21,37 @@ namespace Task2Chat.Repositories
         public GenericRepository(ApplicationDBContext context)
         {
             _context = context;
+            _dbSet = context.Set<T>();
         }
 
-        public Task AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddAsync(entity);
         }
 
-        public Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return await _dbSet.Where(predicate).ToListAsync();
         }
 
-        public Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbSet.ToListAsync();
         }
 
-        public Task<T> GetByIdAsync(TKey id)
+        public async Task<T> GetByIdAsync(TKey id)
         {
-            throw new NotImplementedException();
+            return await _dbSet.FindAsync(id);
         }
 
-        public Task RemoveAsync(T entity)
+        public async Task RemoveAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Remove(entity);
         }
 
-        public Task UpdateAsync(T entity)
+        public async Task UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Update(entity);
         }
     }
 }
